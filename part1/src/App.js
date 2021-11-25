@@ -1,24 +1,21 @@
-import React from 'react'
+import React, {useState} from 'react'
 
-const Hello = (props) => {
-  return (
+const App = () =>
+{
+const [value, setValue] = useState(10);
+
+const setToValue = (newValue) => () => {
+    setValue(newValue)
+}
+return (
     <div>
-      <p>Hello {props.name}, You are {props.age} years old</p>
+        {value}
+        <button onClick={setToValue(1000)}>thousand</button>
+        <button onClick={setToValue(10)}>ten</button>
+        <button onClick={setToValue(value+1)}>increase by 1</button>
+
     </div>
-  )
-}
-
-const App = () => {
-  const name="Andrew"
-  const age="34"
-  return(
-  <div>
-    <h1>Greetings</h1>
-    <Hello name="Varun" age='32' />
-    <Hello name={name} age={age} />
-
-  </div>
-  )
-}
+)
+ }
 
 export default App

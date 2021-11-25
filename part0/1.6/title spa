@@ -1,0 +1,19 @@
+title spa
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+server->browser: js code
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa
+server->browser: html code
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+
+note over browser:
+browser gets the js code and starts executing
+
+
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+server->browser: HTML redirect 302
+
+note over browser:
+browser redirects and reloads the page with the new note that was just posted
+sendToServer @ https://studies.cs.helsinki.fi/exampleapp/spa.js:43
+form.onsubmit @ https://studies.cs.helsinki.fi/exampleapp/spa.js:59
